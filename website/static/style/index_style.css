@@ -1,0 +1,60 @@
+/* To make the Blue in Plastic Jazz Blue's Blue!! */
+.logo-colored-word{
+    color: #1F51FF;
+}
+
+#logo{
+    font-size: xx-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar-nav{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+}
+
+.navbar-searchbar{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.center-container{
+    text-align: center;
+}
+
+#hero-header{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#hero-body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#hero-button{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.album{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card-body{
+    height: 244px;
+    overflow-y: scroll;
+}
+
+.card-text{
+    overflow: hidden;
+}
+
+.scrolling-wrapper{
+	overflow-x: auto;
+}
+
+.start-price{
+    color: red;
+}
+
+.display-5{
+    font-weight: bold;
+    margin-bottom: 0px;
+}
