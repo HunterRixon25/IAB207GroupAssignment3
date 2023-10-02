@@ -1,0 +1,968 @@
+<!-- Bootstrap Starter Template -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Boostrap CSS & JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Link the custom style sheer associated with this html file -->
+    <link rel="stylesheet" href="static/style/index_style.css">
+
+    <title>The Plastic Jazz Blues - Home</title>
+  </head>
+  <body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg bg-dark-subtle sticky-top">
+        <div class="container-fluid">
+            <a id="logo" class="navbar-brand">The Plastic Jazz <span class="logo-colored-word">Blues</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"      aria-expanded="false" aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      My Account
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">View Account Details</a></li>
+                      <li><a class="dropdown-item" href="userBookingHistory.html">My Events</a></li>
+                      <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex navbar-searchbar" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search for Artists/Events..." aria-label="Search">
+                  <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+              </div>
+        </div>
+    </nav>
+
+    <!-- Bordered Hero -->
+    <div class="container mt-5">
+        <div class="row pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="col p-3 p-lg-5 pt-lg-3">
+            <h1 id="hero-header" class="display-4 fw-bold lh-1 text-body-emphasis text-center">Contribute to Australia's Jazz Scene Now!</h1>
+            <p id="hero-body" class="lead text-center">The Plastic Jazz <span class="logo-colored-word">Blue</span>'s makes event management easy. Want to perform or host an event on behalf of a musician or group? Then create an event now!</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-4 mb-lg-3">
+              <a href="eventCreation.html">
+                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Create Event</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+      <!-- Navbar to search for events by category
+      <nav id="categoryNavbar" class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#trending">Trending</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#in_your_city">In Your City</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#blues">Blues</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#soul">Soul</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">View all Categories</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> -->
+      <!-- Categories using nav-pills to show relevant events-->
+    <ul class="nav nav-pills mb-3 p-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-showall-tab" data-bs-toggle="pill" data-bs-target="#pills-showall" type="button" role="tab" aria-controls="pills-showall" aria-selected="true">Show All</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-trending-tab" data-bs-toggle="pill" data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-trending" aria-selected="false">Trending</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-InYourCity-tab" data-bs-toggle="pill" data-bs-target="#pills-InYourCity" type="button" role="tab" aria-controls="pills-InYourCity" aria-selected="false">In Your City</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-blues-tab" data-bs-toggle="pill" data-bs-target="#pills-blues" type="button" role="tab" aria-controls="pills-blues" aria-selected="false">Blues</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-soul-tab" data-bs-toggle="pill" data-bs-target="#pills-soul" type="button" role="tab" aria-controls="pills-soul" aria-selected="false">Soul</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-showall" role="tabpanel" aria-labelledby="pills-showall" tabindex="0">
+        <!-- Trending Events -->
+       
+        <!-- Creating an album of cards to display the events -->
+        <div class="album py-5 bg-light">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Miles-Davis.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>Miles Davis - Kind of Blue Tour</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        The most influential figure in Jazz is here in Brisbane. Miles Davis takes the stage at The Gresham Bar, performing hits from his classic album "Kind of Blue".
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetails.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-success">Open</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted">308 Queen St, Brisbane City QLD 4000</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Duke Ellington.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>Duke Ellington - Jazz n' Cigars</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        Experience the timeless allure of jazz at its finest with a Duke Ellington concert. Step into a world of sophistication and swing as the Duke's iconic melodies come to life, enchanting audiences with his signature style and unforgettable compositions.
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetailsPage.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-warning text-white">Inactive</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted">152/156 Clarence St, Sydney NSW 2000</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Louis-Armstrong.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>Louis Armstrong - Pops on Stage</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        Get ready to be transported to the golden age of jazz with a Louis Armstrong show. Step into a world of scintillating trumpet solos, infectious rhythms, and that unmistakable gravelly voice. Whether you're a jazz aficionado or new to the genre, a Louis Armstrong show promises an unforgettable evening filled with soulful melodies and toe-tapping tunes that will leave you with a smile on your face and jazz in your heart.
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetailsPage.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-danger">Cancelled</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted">1 Malthouse Ln, Melbourne VIC 3000</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+    
+            <!-- Events in Your City -->
+        
+              <!-- Creating an album of cards to display the events -->
+              <div class="album py-5 bg-light">
+                <div class="container">
+        
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/John-Coltrane.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>John Coltrane - Hop on the Col-Train</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Prepare to embark on a musical journey like no other at a John Coltrane show. Delve into the depths of improvisation and innovation as the saxophone virtuoso's genius comes to life on stage.
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-danger">Sold Out</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted">36 Burnett Ln, Brisbane City QLD 4000</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Charlie-Parker.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>Charlier Parker - From NY with Love</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Prepare to be transported to the heart of bebop with a Charlie Parker show. Step into the world of the legendary "Bird" and experience the exhilarating energy of his iconic alto saxophone. Get ready to groove to the timeless classics like "Ornithology" and "Confirmation" performed by a talented ensemble that captures Parker's innovative spirit. 
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-success">Open</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted">175 Eagle St, Brisbane City QLD 4000</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Ella-Fitzjerald.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>Ella Fitzjerald - Queen of Jazz</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Get ready for an enchanting evening of jazz with an Ella Fitzgerald show. Step into a world of timeless elegance and silky-smooth vocals as you experience the magic of the "First Lady of Song." Let the dulcet tones of classics like "Summertime" and "At Last" wash over you, performed by a talented ensemble that pays homage to Ella's incomparable talent.
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-success">Open</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted">109 Edward St, Brisbane City QLD 4000</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+              <!-- Blues Events -->
+            
+              <!-- Creating an album of cards to display the events -->
+              <div class="album py-5 bg-light">
+                <div class="container">
+        
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/B.B.-King.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>B.B. King - The Solo King</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Step into a world where the guitar reigns supreme, and the soulful sounds of the "King of Blues" himself electrify the night. Feel the raw emotion and storytelling in every note as B.B. King's timeless classics like "The Thrill Is Gone" and "Sweet Little Angel" come to life, played by skilled musicians who channel his legendary style.
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-danger">Cancelled</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted">3 Pakenham St, Fremantle WA 6160</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Eric-Clapton.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>Eric Clapton - The Journeyman</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Enter a realm where six strings tell stories, and the blues-rock virtuoso himself takes center stage. Feel the magic of Clapton's timeless hits like "Layla" and "Tears in Heaven" brought to life by a talented ensemble that honors his iconic sound.
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-success">Open</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted"> Basement, 131 St Georges Terrace, Perth WA 6000</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Howlin-Wolf.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>Howlin Wolf - Full Moon Performance</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Experience the raw power of Wolf's iconic songs like "Smokestack Lightning" and "Spoonful" as they roar to life, performed by a talented ensemble that channels his timeless blues energy. Whether you're a blues aficionado or new to the genre, a Howlin' Wolf show promises a night of unbridled passion, haunting melodies, and a journey deep into the heart of the Delta blues.
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-success">Open</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted">322 Little Collins St, Melbourne VIC 3000</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+              <!-- Soul Events -->
+        
+              <!-- Creating an album of cards to display the events -->
+              <div class="album py-5 bg-light">
+                <div class="container">
+        
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Rashaan-Roland-Kirk.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>Raashan Roland Kirk - From My Soul to Yours</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Witness the magic as Kirk plays multiple instruments simultaneously, blending soulful saxophone, melodica, and other unconventional instruments into a harmonious symphony. Immerse yourself in the spellbinding sounds of his iconic compositions like "Bright Moments" and "The Inflated Tear," brought to life by a talented ensemble that pays homage to his groundbreaking style.
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-success">Open</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted">Abercrombie Ln, Sydney NSW 2000</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Grant-Green.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>Grant Green - The Grass is Greener Here</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Feel the infectious rhythms and cool melodies of Green's iconic tracks like "Idle Moments" and "The Latin Bit" as they come to life, performed by a talented ensemble that captures his laid-back yet deeply expressive style. Whether you're a jazz aficionado or new to the genre, a Grant Green show promises an unforgettable evening filled with melodic brilliance and a laid-back groove that will have you swaying to the music.
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-success">Open</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted">308 Queen St, Brisbane City QLD 4000</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Nat-Adderley.png" data-holder-rendered="true">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <h5>Nat Adderley - Something in My Hair</h5>
+                            <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                            Whether you're a seasoned jazz enthusiast or new to the genre, a Nat Adderley show promises an unforgettable evening filled with musical dynamism and a groove that will have you tapping your feet. Join us for a night of jazz that celebrates the enduring legacy of a true jazz pioneer, where Nat Adderley's trumpet continues to uplift and inspire audiences with its joyful sound.
+                          </p>
+                          <div class="justify-content-between align-items-center">
+                            <div class="row">
+                              <div class="col-5">
+                                <div class="btn-group">
+                                  <a href="eventDetailsPage.html">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                                  </a>
+                                  <button type="button" class="btn btn-sm btn-success">Open</button>
+                                </div>
+                              </div>
+                              <div class="col-7">
+                                <small class="text-muted">308 Queen St, Brisbane City QLD 4000</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        
+      <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab" tabindex="0">
+          <!-- Trending Events -->
+        <h2 id="trending" class="display-5 text-center bg-light">
+          Trending
+          </h2>
+  
+        <!-- Creating an album of cards to display the events -->
+        <div class="album py-5 bg-light">
+          <div class="container">
+          
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Miles-Davis.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>Miles Davis - Kind of Blue Tour</h5>
+                      <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                      The most influential figure in Jazz is here in Brisbane. Miles Davis takes the stage at The Gresham Bar, performing hits from his classic album "Kind of Blue".
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col-5">
+                          <div class="btn-group">
+                            <a href="eventDetails.html">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-success">Open</button>
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <small class="text-muted">308 Queen St, Brisbane City QLD 4000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Duke Ellington.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>Duke Ellington - Jazz n' Cigars</h5>
+                      <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                      Experience the timeless allure of jazz at its finest with a Duke Ellington concert. Step into a world of sophistication and swing as the Duke's iconic melodies come to life, enchanting audiences with his signature style and unforgettable compositions.
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col-5">
+                          <div class="btn-group">
+                            <a href="eventDetailsPage.html">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-warning text-white">Inactive</button>
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <small class="text-muted">152/156 Clarence St, Sydney NSW 2000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Louis-Armstrong.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>Louis Armstrong - Pops on Stage</h5>
+                      <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                      Get ready to be transported to the golden age of jazz with a Louis Armstrong show. Step into a world of scintillating trumpet solos, infectious rhythms, and that unmistakable gravelly voice. Whether you're a jazz aficionado or new to the genre, a Louis Armstrong show promises an unforgettable evening filled with soulful melodies and toe-tapping tunes that will leave you with a smile on your face and jazz in your heart.
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col-5">
+                          <div class="btn-group">
+                            <a href="eventDetailsPage.html">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-danger">Cancelled</button>
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <small class="text-muted">1 Malthouse Ln, Melbourne VIC 3000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </div>
+        <div class="row">
+          <div class="col-3">
+            <button class="btn btn-primary rounded-pill px-3" type="button">Browse more Trending Events</button>
+          </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="tab-pane fade" id="pills-InYourCity" role="tabpanel" aria-labelledby="pills-InYourCity-tab" tabindex="0">
+          <!-- Events in Your City -->
+        <h2 id="in_your_city" class="display-5 text-center bg-light">
+          In Your City
+        </h2>
+  
+        <!-- Creating an album of cards to display the events -->
+        <div class="album py-5 bg-light">
+          <div class="container"> 
+  
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/John-Coltrane.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>John Coltrane - Hop on the Col-Train</h5>
+                      <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                      Prepare to embark on a musical journey like no other at a John Coltrane show. Delve into the depths of improvisation and innovation as the saxophone virtuoso's genius comes to life on stage.
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col-5">
+                          <div class="btn-group">
+                            <a href="eventDetailsPage.html">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-danger">Sold Out</button>
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <small class="text-muted">36 Burnett Ln, Brisbane City QLD 4000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Charlie-Parker.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>Charlier Parker - From NY with Love</h5>
+                      <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                      Prepare to be transported to the heart of bebop with a Charlie Parker show. Step into the world of the legendary "Bird" and experience the exhilarating energy of his iconic alto saxophone. Get ready to groove to the timeless classics like "Ornithology" and "Confirmation" performed by a talented ensemble that captures Parker's innovative spirit. 
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col-5">
+                          <div class="btn-group">
+                            <a href="eventDetailsPage.html">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-success">Open</button>
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <small class="text-muted">175 Eagle St, Brisbane City QLD 4000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Ella-Fitzjerald.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>Ella Fitzjerald - Queen of Jazz</h5>
+                      <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                      Get ready for an enchanting evening of jazz with an Ella Fitzgerald show. Step into a world of timeless elegance and silky-smooth vocals as you experience the magic of the "First Lady of Song." Let the dulcet tones of classics like "Summertime" and "At Last" wash over you, performed by a talented ensemble that pays homage to Ella's incomparable talent.
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col-5">
+                          <div class="btn-group">
+                            <a href="eventDetailsPage.html">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-success">Open</button>
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <small class="text-muted">109 Edward St, Brisbane City QLD 4000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+        <div class="row">
+          <div class="col-3">
+            <button class="btn btn-primary rounded-pill px-3" type="button">Browse more Events In Your City</button>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="tab-pane fade" id="pills-blues" role="tabpanel" aria-labelledby="pills-blues-tab" tabindex="0">
+           <!-- Blues Events -->
+           <h2 id="blues" class="display-5 text-center bg-light" style="margin-bottom: 0px;">
+            Blues
+          </h2>
+    
+          <!-- Creating an album of cards to display the events -->
+          <div class="album py-5 bg-light">
+            <div class="container">
+    
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/B.B.-King.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>B.B. King - The Solo King</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        Step into a world where the guitar reigns supreme, and the soulful sounds of the "King of Blues" himself electrify the night. Feel the raw emotion and storytelling in every note as B.B. King's timeless classics like "The Thrill Is Gone" and "Sweet Little Angel" come to life, played by skilled musicians who channel his legendary style.
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetailsPage.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-danger">Cancelled</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted">3 Pakenham St, Fremantle WA 6160</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Eric-Clapton.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>Eric Clapton - The Journeyman</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        Enter a realm where six strings tell stories, and the blues-rock virtuoso himself takes center stage. Feel the magic of Clapton's timeless hits like "Layla" and "Tears in Heaven" brought to life by a talented ensemble that honors his iconic sound.
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetailsPage.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-success">Open</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted"> Basement, 131 St Georges Terrace, Perth WA 6000</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Howlin-Wolf.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>Howlin Wolf - Full Moon Performance</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        Experience the raw power of Wolf's iconic songs like "Smokestack Lightning" and "Spoonful" as they roar to life, performed by a talented ensemble that channels his timeless blues energy. Whether you're a blues aficionado or new to the genre, a Howlin' Wolf show promises a night of unbridled passion, haunting melodies, and a journey deep into the heart of the Delta blues.
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetailsPage.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-success">Open</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted">322 Little Collins St, Melbourne VIC 3000</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+          <div class="row">
+            <div class="col-3">
+              <button class="btn btn-primary rounded-pill px-3" type="button">Browse more Blues Events</button>
+            </div>
+          </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+      <div class="tab-pane fade" id="pills-soul" role="tabpanel" aria-labelledby="pills-soul-tab" tabindex="0">
+          <!-- Soul Events -->
+          <h2 id="soul" class="display-5 text-center bg-light" style="margin-bottom: 0px;">
+            Soul
+          </h2>
+    
+          <!-- Creating an album of cards to display the events -->
+          <div class="album py-5 bg-light">
+            <div class="container">
+    
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Rashaan-Roland-Kirk.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>Raashan Roland Kirk - From My Soul to Yours</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        Witness the magic as Kirk plays multiple instruments simultaneously, blending soulful saxophone, melodica, and other unconventional instruments into a harmonious symphony. Immerse yourself in the spellbinding sounds of his iconic compositions like "Bright Moments" and "The Inflated Tear," brought to life by a talented ensemble that pays homage to his groundbreaking style.
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetailsPage.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-success">Open</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted">Abercrombie Ln, Sydney NSW 2000</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Grant-Green.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>Grant Green - The Grass is Greener Here</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        Feel the infectious rhythms and cool melodies of Green's iconic tracks like "Idle Moments" and "The Latin Bit" as they come to life, performed by a talented ensemble that captures his laid-back yet deeply expressive style. Whether you're a jazz aficionado or new to the genre, a Grant Green show promises an unforgettable evening filled with melodic brilliance and a laid-back groove that will have you swaying to the music.
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetailsPage.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-success">Open</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted">308 Queen St, Brisbane City QLD 4000</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Nat-Adderley.png" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <h5>Nat Adderley - Something in My Hair</h5>
+                        <small class="text-muted red-text"><span class="start-price">Starts at A$9.99</span></small><br>
+                        Whether you're a seasoned jazz enthusiast or new to the genre, a Nat Adderley show promises an unforgettable evening filled with musical dynamism and a groove that will have you tapping your feet. Join us for a night of jazz that celebrates the enduring legacy of a true jazz pioneer, where Nat Adderley's trumpet continues to uplift and inspire audiences with its joyful sound.
+                      </p>
+                      <div class="justify-content-between align-items-center">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="btn-group">
+                              <a href="eventDetailsPage.html">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                              </a>
+                              <button type="button" class="btn btn-sm btn-success">Open</button>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <small class="text-muted">308 Queen St, Brisbane City QLD 4000</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+          <div class="row">
+            <div class="col-3">
+              <button class="btn btn-primary rounded-pill px-3" type="button">Browse more Soul Events</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+          <hr style="margin-top: 30px;">
+          <!-- About Section -->
+          <h2 id="soul" class="display-5 text-center bg-light" style="margin-bottom: 20px;">
+            About
+          </h2>
+
+          <div class="container-fluid" style="margin-bottom: 10px;">
+            <div class="row featurette">
+                <div class="col-md-7">
+                  <h2 class="featurette-heading">Events for you, by you</h2>
+                  <p class="lead">Add some more text here and use CSS to align the text in the center (vertically).</p>
+                </div>
+                <div class="col-md-5">
+                  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+                </div>
+              </div>
+          </div>
+
+          <div class="container-fluid" style="margin-top: 10px;">
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                  <h2 class="featurette-heading">Join Australia's biggest Jazz community</h2>
+                  <p class="lead">Add some more text here and use CSS to align the text in the center (vertically).</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+                </div>
+              </div>
+          </div>
+
+          <!-- Footer -->
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">© 2023 The Plastic Jazz Blues</span>
+            </div>
+            <!-- Bootstrap Icons for Social Media accounts-->
+            <a class = "icon-link" href="https://www.facebook.com/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            </a>
+            <a class="icon-link" href="https://www.instagram.com/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            </a>
+            <a class="icon-link" href="https://twitter.com/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+            </svg>
+            </a>
+            <a class="icon-link" href="https://www.tiktok.com/en/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+              <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
+            </svg>
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <span class="mb-3 mb-md-0 text-muted">Group 11</span>
+            </ul>
+            </footer>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
