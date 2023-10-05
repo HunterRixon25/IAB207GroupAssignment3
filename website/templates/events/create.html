@@ -1,0 +1,23 @@
+<head>
+  <link rel="stylesheet" href="static/style/index_style.css">
+</head>
+
+{% extends 'base.html' %}
+
+{% import "bootstrap5/form.html" as wtf %}
+{% block content %}
+
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-12">
+
+        <h1>Add Jazz Event</h1>
+        <p>CHANGE ME CHANGE ME CHANGE ME</p>
+
+        {{wtf.render_form(form)}}
+        
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
