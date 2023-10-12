@@ -21,8 +21,8 @@ def create():
   form = EventsForm()
   if form.validate_on_submit():
     db_file_path = check_upload_file(form)
-    event = Events(name=form.name.data,description=form.description.data, 
-    image=db_file_path, tickets=form.tickets.data)
+    event = Events(name=form.name.data, eventCategory=form.eventCategory.data, description=form.description.data, 
+    image=db_file_path, tickets=form.tickets.data, ticketType=form.ticketType.data, ticketPrice=form.ticketPrice.data, eventLink=form.eventLink.data, address1=form.address1.data, address2=form.address2.data, city=form.city.data, stat=form.state.data, postcode=form.postcode.data, venueCapacity=form.venueCapacity.data, eventTags=form.eventTags.data, eventDateTime=form.eventDateTime.data)
     db.session.add(event)
     db.session.commit()
     flash('Successfully created new Music Event', 'success')
