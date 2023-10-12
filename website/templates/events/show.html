@@ -1,0 +1,52 @@
+<head>
+    <link rel="stylesheet" href="static/style/index_style.css">
+  </head>
+
+{% extends 'base.html' %}
+
+{% import "bootstrap5/form.html" as wtf %}
+
+{% block content %}
+
+<!-- Event --> 
+    <div class="row">  
+      <div class="col-md-12">  
+        <div class="card my-3">  
+          <div class="card-body">  
+            <div class="media">  
+              <img class="align-self-start mr-3" src="{{event.image}}">  
+              <div class="media-body">  
+                <small class="font-weight-bold text-muted">Event details go here</small>  
+                <h5 class="mt-0">{{event.name}}</h5>  
+                <p>{{event.description}}</p>  
+                <a href="#" class="btn btn-danger">Purchase Ticket</a>  
+              </div>  
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+    </div>     
+ 
+   
+ 
+    <hr>  
+ 
+    <!-- Comments -->  
+    <div class="row">  
+      <div class="col-md-12">  
+        <h2>Comments</h1>  
+      </div>  
+    </div>  
+ 
+    <div class="row border-bottom"> 
+      {{wtf.render_form(form,"/events/{0}/comment".format(event.id))}} 
+      {% for comment in event.comments %}
+      <div class="col-md-12">  
+        <b>{{comment.user.name}} <span class="ml-2 text-muted">{{ comment.created_at.strftime("%d/%m/%Y at %I:%M %p")}}</span></b>
+        <p>{{comment.text}}</p>  
+      </div> 
+      {% endfor %} 
+    </div>  
+  </div> 
+
+{% endblock %}
