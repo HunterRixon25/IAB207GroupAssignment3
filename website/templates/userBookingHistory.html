@@ -1,0 +1,195 @@
+<!-- Bootstrap Starter Template -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Boostrap CSS & JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Link the custom style sheer associated with this html file -->
+    <link rel="stylesheet" href="static/style/index_style.css">
+
+    <link rel="stylesheet" href="static/style/userBookingHistory.css">
+
+    <title>Miles Davis - Kind of Blue Tour</title>
+  </head>
+  <body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg bg-dark-subtle sticky-top">
+        <div class="container-fluid">
+            <a id="logo" class="navbar-brand">The Plastic Jazz <span class="logo-colored-word">Blues</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"      aria-expanded="false" aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      My Account
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">View Account Details</a></li>
+                      <li><a class="dropdown-item" href="userBookingHistory.html">My Events</a></li>
+                      <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex navbar-searchbar" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search for Artists/Events..." aria-label="Search">
+                  <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+              </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row my-3">
+          <div class="col-lg-3">
+            <div id="sideNavBar" class="d-flex flex-column flex-shrink-0 p-3 bg-dark-subtle">
+              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                <span class="fs-4 text-c">My Events</span>
+              </a>
+              <hr>
+              <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active" aria-current="page">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                    Booking History
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                    Events Created
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                    Saved Events
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                    Comments
+                  </a>
+                </li>
+              </ul>
+              <hr>
+              <div class="dropdown">
+                <a class="d-flex align-items-center text-decoration-none">
+                  <strong>John Doe</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="row">
+              <h2>My Booking History</h2>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Miles-Davis.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>Miles Davis - Kind of Blue Tour</h5>
+                      <small class="text-muted"><span class="bookingID">Booking ID - qtl2y3fkw2yyh7dd</span></small><br>
+                      <em>Ticket Type:</em> General Admission<br>
+                      <em>Ticket Price:</em> $AUD 9.99<br>
+                      <em>Date Booked:</em> 17/09/2023<br>
+                      Click <a href="#">here</a> to see invoice
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col">
+                          <small class="text-muted">308 Queen St, Brisbane City QLD 4000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Duke Ellington.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>Duke Ellington - Jazz n' Cigars</h5>
+                      <small class="text-muted"><span class="bookingID">Booking ID - rgos3n4kde4npfkl</span></small><br>
+                      <em>Ticket Type:</em> VIP<br>
+                      <em>Ticket Price:</em> $AUD 50.00<br>
+                      <em>Date Booked:</em> 12/09/2023<br>
+                      Click <a href="#">here</a> to see invoice
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col">
+                          <small class="text-muted">152/156 Clarence St, Sydney NSW 2000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/img/Louis-Armstrong.png" data-holder-rendered="true">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <h5>Louis Armstrong - Pops on Stage</h5>
+                      <small class="text-muted"><span class="bookingID">Booking ID - twdc9fqg70d9r9m3</span></small><br>
+                      <em>Ticket Type:</em> VIP + Meet and Greet<br>
+                      <em>Ticket Price:</em> $AUD 110.00<br>
+                      <em>Date Booked:</em> 01/09/2023<br>
+                      Click <a href="#">here</a> to see invoice
+                    </p>
+                    <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col">
+                          <small class="text-muted">1 Malthouse Ln, Melbourne VIC 3000</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-8">
+            <button type="button" class="btn btn-primary my-3">View all Events</button>
+          </div>
+        </div>
+      </div>
+
+          <!-- Footer -->
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">© 2023 The Plastic Jazz Blues</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <span class="mb-3 mb-md-0 text-muted">Made by Rohan Joshi :)</span>
+            </ul>
+            </footer>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
