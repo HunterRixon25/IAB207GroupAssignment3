@@ -1,28 +1,27 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, DateTimeLocalField
-from wtforms.validators import InputRequired, Email, EqualTo
+from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, DateTimeLocalField, SelectField, IntegerField
+from wtforms.validators import InputRequired, Email, EqualTo, NumberRange
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
 ALLOWED_FILE = {'PNG', 'JPG', 'JPEG', 'png', 'jpg', 'jpeg'}
 
 class EventsForm(FlaskForm):
-  name = StringField('Name', validators=[InputRequired()])
+  name = StringField('Event Name', validators=[InputRequired()])
   eventCategory = StringField('Event Category', validators=[InputRequired()])
   description = TextAreaField('Description', 
             validators=[InputRequired()])
   image = FileField('Destination Image', validators=[
     FileRequired(message='Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
-  tickets = StringField('Tickets', validators=[InputRequired()])
+  ticketCapacity = StringField('Mumber of Tickets', validators=[InputRequired(), NumberRange(min=1)])
   ticketType = StringField('Ticket Type', validators=[InputRequired()])
   ticketPrice = StringField('Ticket Price', validators=[InputRequired()])
-  eventLink = StringField('Event Link', validators=[InputRequired()])
   address1 = StringField('Address 1', validators=[InputRequired()])
   address2 = StringField('Address 2')
   city = StringField('City', validators=[InputRequired()])
-  state = StringField('State', validators=[InputRequired()])
+  state = SelectField('State', choices=[('', 'Select State'), ('Queensland', 'Queensland'), ('New South Wales', 'New South Wales'), ('Victoria', 'Victoria'), ('Western Australia', 'Western Australia'), ('South Australia', 'South Australia'), ('Tasmania', 'Tasmania')])
   postcode = StringField('Postcode', validators=[InputRequired()])
-  venueCapacity = StringField('Venue Capacity', validators=[InputRequired()])
+  venueCapacity = StringField('Total Venue Capacity', validators=[InputRequired(), NumberRange(min=1)])
   eventTags = StringField('Event Tags', validators=[InputRequired()])
   eventDateTime = DateTimeLocalField('Event Date and Time', format = '%d/%m/%YT%H:%M', validators=[InputRequired()])
   submit = SubmitField("Create")
