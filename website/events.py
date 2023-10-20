@@ -24,7 +24,7 @@ def create():
     event = Events(name=form.name.data, eventCategory=form.eventCategory.data, description=form.description.data, 
     image=db_file_path, ticketCapacity=form.ticketCapacity.data, ticketPrice=form.ticketPrice.data, 
     address1=form.address1.data, address2=form.address2.data, city=form.city.data, state=form.state.data, 
-    postcode=form.postcode.data, venueCapacity=form.venueCapacity.data, eventDateTime=form.eventDateTime.data)
+    postcode=form.postcode.data, venueCapacity=form.venueCapacity.data) #, eventDate=form.eventDate.data, eventTime=form.eventTime.data
     db.session.add(event)
     db.session.commit()
     flash('Successfully created new Music Event', 'success')
@@ -35,8 +35,12 @@ def check_upload_file(form):
   fp = form.image.data
   filename = fp.filename 
   BASE_PATH = os.path.dirname(__file__)
-  upload_path = os.path.join(BASE_PATH, 'static/image', secure_filename(filename))
-  db_upload_path = '/static/image/' + secure_filename(filename)
+
+  # Ensure the directory exists
+  upload_directory = os.path.join(BASE_PATH, 'static', 'img')
+  
+  upload_path = os.path.join(upload_directory, secure_filename(filename))
+  db_upload_path = '/static/img/' + secure_filename(filename)
   fp.save(upload_path)
   return db_upload_path
 
