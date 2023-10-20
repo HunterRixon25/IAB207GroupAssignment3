@@ -175,21 +175,6 @@
             {% endif %}
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <label for="{{ form.ticketType.id }}" class="form-label">Ticket Type</label>
-              {{ form.ticketType(class="form-control", placeholder="e.g. 'General Admission'") }}
-              {% if form.ticketType.errors %}
-              <div class="alert alert-danger">
-                  {% for error in form.ticketType.errors %}
-                      {{ error }}
-                  {% endfor %}
-              </div>
-            {% endif %}
-            </div>
-          </div>
           <div class="col">
             <div class="form-group">
               <label for="{{ form.ticketCapacity.id }}" class="form-label">Number of Tickets</label>
