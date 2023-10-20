@@ -26,7 +26,8 @@ class Events(db.Model):
     state = db.Column(db.String(80))
     postcode = db.Column(db.String(10))
     venueCapacity = db.Column(db.Integer)
-    eventDateTime = db.Column(db.DateTime)
+    #eventDate = db.Column(db.Date)
+    #eventTime = db.Column(db.Time)
     comments = db.relationship('Comment', backref='events')
 
     def __repr__(self):
