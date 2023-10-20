@@ -19,7 +19,6 @@ class Events(db.Model):
     description = db.Column(db.String(250))
     image = db.Column(db.String(400))
     ticketCapacity = db.Column(db.Integer)
-    ticketType = db.Column(db.String(80))
     ticketPrice = db.Column(db.Float)
     address1 = db.Column(db.String(80))
     address2 = db.Column(db.String(80))
