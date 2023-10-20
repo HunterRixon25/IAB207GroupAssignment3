@@ -22,7 +22,7 @@ def create():
   if form.validate_on_submit():
     db_file_path = check_upload_file(form)
     event = Events(name=form.name.data, eventCategory=form.eventCategory.data, description=form.description.data, 
-    image=db_file_path, ticketCapacity=form.ticketCapacity.data,  ticketPrice=form.ticketPrice.data, 
+    image=db_file_path, ticketCapacity=form.ticketCapacity.data, ticketPrice=form.ticketPrice.data, 
     address1=form.address1.data, address2=form.address2.data, city=form.city.data, state=form.state.data, 
     postcode=form.postcode.data, venueCapacity=form.venueCapacity.data, eventDateTime=form.eventDateTime.data)
     db.session.add(event)
