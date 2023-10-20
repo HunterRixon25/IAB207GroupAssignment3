@@ -14,7 +14,6 @@ class EventsForm(FlaskForm):
     FileRequired(message='Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
   ticketCapacity = StringField('Mumber of Tickets', validators=[InputRequired(), NumberRange(min=1)])
-  ticketType = StringField('Ticket Type', validators=[InputRequired()])
   ticketPrice = FloatField('Ticket Price', validators=[InputRequired()])
   address1 = StringField('Address 1', validators=[InputRequired()])
   address2 = StringField('Address 2')
