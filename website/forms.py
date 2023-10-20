@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, DateTimeLocalField, SelectField, IntegerField
+from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, DateTimeLocalField, SelectField, IntegerField, FloatField
 from wtforms.validators import InputRequired, Email, EqualTo, NumberRange
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
@@ -15,14 +15,13 @@ class EventsForm(FlaskForm):
     FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
   ticketCapacity = StringField('Mumber of Tickets', validators=[InputRequired(), NumberRange(min=1)])
   ticketType = StringField('Ticket Type', validators=[InputRequired()])
-  ticketPrice = StringField('Ticket Price', validators=[InputRequired()])
+  ticketPrice = FloatField('Ticket Price', validators=[InputRequired()])
   address1 = StringField('Address 1', validators=[InputRequired()])
   address2 = StringField('Address 2')
   city = StringField('City', validators=[InputRequired()])
   state = SelectField('State', choices=[('', 'Select State'), ('Queensland', 'Queensland'), ('New South Wales', 'New South Wales'), ('Victoria', 'Victoria'), ('Western Australia', 'Western Australia'), ('South Australia', 'South Australia'), ('Tasmania', 'Tasmania')])
   postcode = StringField('Postcode', validators=[InputRequired()])
   venueCapacity = StringField('Total Venue Capacity', validators=[InputRequired(), NumberRange(min=1)])
-  eventTags = StringField('Event Tags', validators=[InputRequired()])
   eventDateTime = DateTimeLocalField('Event Date and Time', format = '%d/%m/%YT%H:%M', validators=[InputRequired()])
   submit = SubmitField("Create")
     
