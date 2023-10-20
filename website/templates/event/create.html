@@ -9,7 +9,7 @@
 {% block content %}
 
     <!-- Event Creation Form -->
-    <form method="post" action="/create" enctype="multipart/form-data">
+    <form method="POST" action="create" enctype="multipart/form-data">
       <div class="container-fluid">
         <article class="blog-post">
           <h2 class="display-5 link-body-emphasis mb-1 text-center">Create Your Event Here</h2>
@@ -74,22 +74,37 @@
             </div>
           {% endif %}
           </div>
-        <div class="row">
-          <div class="col p-3">
-            <div class="form-group">
-              <label for="{{ form.eventDateTime.id }}" class="form-label"><span class="mandatory-field">*</span>Event Date</label>
-              <!-- <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="17/09/2023"> -->
-              {{ form.eventDateTime }}
-              {% if form.eventDateTime.errors %}
-              <div class="alert alert-danger">
-                {% for error in form.eventDateTime.errors %}
-                    {{ error }}
-                {% endfor %}
-            </div>
-          {% endif %}
-            </div>
+          <!--
+          <div class="row">
+              <div class="col">
+                  <div class="form-group">
+                      <label for="{{ form.eventDate.id }}" class="form-label"><span class="mandatory-field">*</span>Event Date</label>
+                      {{ form.eventDate(class="form-control", id="eventDate", placeholder="DD/MM/YYYY") }}
+                      {{ form.eventDate.data }}
+                      {% if form.eventDate.errors %}
+                          <div class="alert alert-danger">
+                              {% for error in form.eventDate.errors %}
+                                  {{ error }}
+                              {% endfor %}
+                          </div>
+                      {% endif %}
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="form-group">
+                      <label for="{{ form.eventTime.id }}" class="form-label"><span class="mandatory-field">*</span>Event Time</label>
+                      {{ form.eventTime(class="form-control", id="eventTime", placeholder="HH:MM") }}
+                      {% if form.eventTime.errors %}
+                          <div class="alert alert-danger">
+                              {% for error in form.eventDateTime.errors %}
+                                  {{ error }}
+                              {% endfor %}
+                          </div>
+                      {% endif %}
+                  </div> 
+              </div>
           </div>
-        </div>
+          -->
         <hr>
         <h3>Location</h3>
         <div class="row">
