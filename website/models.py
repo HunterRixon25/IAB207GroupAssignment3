@@ -28,7 +28,7 @@ class Events(db.Model):
     venueCapacity = db.Column(db.Integer)
     #eventDate = db.Column(db.Date)
     #eventTime = db.Column(db.Time)
-    comments = db.relationship('Comment', backref='events')
+    comments = db.relationship('Comment', backref='event')
 
     def __repr__(self):
         return f"Name: {self.name}"
