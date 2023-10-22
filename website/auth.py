@@ -36,14 +36,17 @@ def login():
     login_form = LoginForm()
     error = None
     if(login_form.validate_on_submit()==True):
+        # get the username and password from database
         user_name = login_form.user_name.data
         password = login_form.password.data
         user = User.query.filter_by(name=user_name).first()
+        # if there is no user with that name or password...
         if user is None:
             error = 'Incorrect username or password'
         elif not check_password_hash(user.password_hash, password):
             error = 'Incorrect username or password'
         if error is None:
+            # otherwise, we all good
             login_user(user)
             return redirect(url_for('main.index'))
         else:
