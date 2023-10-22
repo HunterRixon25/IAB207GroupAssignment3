@@ -13,7 +13,7 @@
             <h1 id="hero-header" class="display-4 fw-bold lh-1 text-body-emphasis text-center">Contribute to Australia's Jazz Scene Now!</h1>
             <p id="hero-body" class="lead text-center">The Plastic Jazz <span class="logo-colored-word">Blue</span>'s makes event management easy. Want to perform or host an event on behalf of a musician or group? Then create an event now!</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-4 mb-lg-3">
-              <a href="eventCreation.html">
+              <a href="{{ url_for('event.create') }}">
                 <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Create Event</button>
               </a>
             </div>
@@ -61,7 +61,7 @@
                         <div class="row">
                           <div class="col-5">
                             <div class="btn-group">
-                              <a href="eventDetails.html">
+                              <a href="{{ url_for('event.show') }}">
                               <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
                               </a>
                               <button type="button" class="btn btn-sm btn-success">Open</button>
