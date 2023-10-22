@@ -24,7 +24,7 @@ def create():
     event = Events(name=form.name.data, eventCategory=form.eventCategory.data, description=form.description.data, 
     image=db_file_path, ticketCapacity=form.ticketCapacity.data, ticketPrice=form.ticketPrice.data, 
     address1=form.address1.data, address2=form.address2.data, city=form.city.data, state=form.state.data, 
-    postcode=form.postcode.data, venueCapacity=form.venueCapacity.data) #, eventDate=form.eventDate.data, eventTime=form.eventTime.data
+    postcode=form.postcode.data, venueCapacity=form.venueCapacity.data, eventDate=form.eventDate.data, eventTime=form.eventTime.data)
     db.session.add(event)
     db.session.commit()
     print('probably added to database')
