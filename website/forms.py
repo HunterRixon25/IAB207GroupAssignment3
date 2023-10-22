@@ -22,7 +22,7 @@ class EventsForm(FlaskForm):
   postcode = StringField('Postcode', validators=[InputRequired()])
   venueCapacity = StringField('Total Venue Capacity', validators=[InputRequired(), NumberRange(min=1)])
   #eventDate = DateField('Event Date', format = '%d/%m/%Y', validators=[InputRequired()])
-  eventTime = TimeField('Event Time', validators=[InputRequired()])
+  #eventTime = TimeField('Event Time', validators=[InputRequired()])
   submit = SubmitField("Create")
     
 class LoginForm(FlaskForm):
