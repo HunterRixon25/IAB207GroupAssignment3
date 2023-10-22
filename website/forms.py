@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, SelectField, IntegerField, FloatField, # DateField, TimeField,
+from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, SelectField, IntegerField, FloatField, TimeField, #DateField,
 from wtforms.validators import InputRequired, Email, EqualTo, NumberRange
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
@@ -22,7 +22,7 @@ class EventsForm(FlaskForm):
   postcode = StringField('Postcode', validators=[InputRequired()])
   venueCapacity = StringField('Total Venue Capacity', validators=[InputRequired(), NumberRange(min=1)])
   #eventDate = DateField('Event Date', format = '%d/%m/%Y', validators=[InputRequired()])
-  #eventTime = TimeField('Event Time', validators=[InputRequired()])
+  eventTime = TimeField('Event Time', validators=[InputRequired()])
   submit = SubmitField("Create")
     
 class LoginForm(FlaskForm):
