@@ -27,6 +27,7 @@ def create():
     postcode=form.postcode.data, venueCapacity=form.venueCapacity.data) #, eventDate=form.eventDate.data, eventTime=form.eventTime.data
     db.session.add(event)
     db.session.commit()
+    print('probably added to database')
     flash('Successfully created new Music Event', 'success')
     return redirect(url_for('event.create'))
   return render_template('events/create.html', form=form)
@@ -48,13 +49,13 @@ def check_upload_file(form):
 @login_required
 def comment(event):  
     form = CommentForm()  
-    event_obj = db.session.scalar(db.select(Events).where(Events.id==event))
+    event_obj = Events.query.filter_by(id=event).first()
     if form.validate_on_submit():  
       comment = Comment(text=form.text.data, 
-                        event=event_obj.id,
-                        user=current_user.id) 
+                        events_id=event_obj.id,
+                        user_id=current_user.id) 
       db.session.add(comment) 
       db.session.commit() 
 
-      flash('Your comment has been added', 'success')  
-    return redirect(url_for('event.show', id=event.id))
+      #flash('Your comment has been added', 'success')  
+    return redirect(url_for('event.show', id=event))
