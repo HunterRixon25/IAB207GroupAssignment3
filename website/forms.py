@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, SelectField, IntegerField, FloatField, TimeField #DateField,
+from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, SelectField, IntegerField, FloatField #, DateField, TimeField,
 from wtforms.validators import InputRequired, Email, EqualTo, NumberRange
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
@@ -13,17 +13,17 @@ class EventsForm(FlaskForm):
   image = FileField('Destination Image', validators=[
     FileRequired(message='Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
-  ticketCapacity = StringField('Mumber of Tickets', validators=[InputRequired(), NumberRange(min=1)])
+  ticketCapacity = IntegerField('Number of Tickets', validators=[InputRequired(), NumberRange(min=1)])
   ticketPrice = FloatField('Ticket Price', validators=[InputRequired()])
   address1 = StringField('Address 1', validators=[InputRequired()])
   address2 = StringField('Address 2')
   city = StringField('City', validators=[InputRequired()])
   state = SelectField('State', choices=[('', 'Select State'), ('Queensland', 'Queensland'), ('New South Wales', 'New South Wales'), ('Victoria', 'Victoria'), ('Western Australia', 'Western Australia'), ('South Australia', 'South Australia'), ('Tasmania', 'Tasmania')])
   postcode = StringField('Postcode', validators=[InputRequired()])
-  venueCapacity = StringField('Total Venue Capacity', validators=[InputRequired(), NumberRange(min=1)])
+  venueCapacity = IntegerField('Total Venue Capacity', validators=[InputRequired(), NumberRange(min=1)])
   #eventDate = DateField('Event Date', format = '%d/%m/%Y', validators=[InputRequired()])
   #eventTime = TimeField('Event Time', validators=[InputRequired()])
-  submit = SubmitField("Create")
+  submit = SubmitField("Create Event")
     
 class LoginForm(FlaskForm):
     user_name = StringField("User Name", validators=[InputRequired('Enter user name')])
