@@ -10,6 +10,7 @@
 
     <!-- Event Creation Form -->
     <form method="POST" action="create" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
       <div class="container-fluid">
         <article class="blog-post">
           <h2 class="display-5 link-body-emphasis mb-1 text-center">Create Your Event Here</h2>
@@ -49,7 +50,6 @@
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1 mt-5">
                         <div class="input-group mb-3">
                             {{ form.image(class="form-control") }}
-                            <label class="input-group-text" for="inputGroupFile02">Upload</label>
                         </div>                      
                       <p class="text-muted text-center">Supported file types: JPEG, PNG</p>
                       {% if form.image.errors %}
@@ -74,37 +74,9 @@
             </div>
           {% endif %}
           </div>
-          <!--
-          <div class="row">
-              <div class="col">
-                  <div class="form-group">
-                      <label for="{{ form.eventDate.id }}" class="form-label"><span class="mandatory-field">*</span>Event Date</label>
-                      {{ form.eventDate(class="form-control", id="eventDate", placeholder="DD/MM/YYYY") }}
-                      {{ form.eventDate.data }}
-                      {% if form.eventDate.errors %}
-                          <div class="alert alert-danger">
-                              {% for error in form.eventDate.errors %}
-                                  {{ error }}
-                              {% endfor %}
-                          </div>
-                      {% endif %}
-                  </div>
-              </div>
-              <div class="col">
-                  <div class="form-group">
-                      <label for="{{ form.eventTime.id }}" class="form-label"><span class="mandatory-field">*</span>Event Time</label>
-                      {{ form.eventTime(class="form-control", id="eventTime", placeholder="HH:MM") }}
-                      {% if form.eventTime.errors %}
-                          <div class="alert alert-danger">
-                              {% for error in form.eventDateTime.errors %}
-                                  {{ error }}
-                              {% endfor %}
-                          </div>
-                      {% endif %}
-                  </div> 
-              </div>
-          </div>
-          -->
+          <!-- event date and time goes here -->
+        <div class="row">
+        </div>
         <hr>
         <h3>Location</h3>
         <div class="row">
