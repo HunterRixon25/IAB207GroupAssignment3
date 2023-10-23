@@ -74,7 +74,35 @@
             </div>
           {% endif %}
           </div>
-          <!-- event date and time goes here -->
+          <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="{{ form.eventDate.id }}" class="form-label"><span class="mandatory-field">*</span>Event Date</label>
+                    {{ form.eventDate(class="form-control", id="eventDate", placeholder="DD/MM/YYYY") }}
+                    {{ form.eventDate.data }}
+                    {% if form.eventDate.errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.eventDate.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="{{ form.eventTime.id }}" class="form-label"><span class="mandatory-field">*</span>Event Time</label>
+                    {{ form.eventTime(class="form-control", id="eventTime", placeholder="HH:MM") }}
+                    {% if form.eventTime.errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.eventDateTime.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div> 
+            </div>
+        </div>
         <div class="row">
         </div>
         <hr>
