@@ -21,7 +21,7 @@ class EventsForm(FlaskForm):
   state = SelectField('State', choices=[('', 'Select State'), ('Queensland', 'Queensland'), ('New South Wales', 'New South Wales'), ('Victoria', 'Victoria'), ('Western Australia', 'Western Australia'), ('South Australia', 'South Australia'), ('Tasmania', 'Tasmania')])
   postcode = StringField('Postcode', validators=[InputRequired()])
   venueCapacity = IntegerField('Total Venue Capacity', validators=[InputRequired(), NumberRange(min=1)])
-  eventDate = DateField('Event Date', format = '%d/%m/%Y', validators=[InputRequired()])
+  eventDate = DateField('Event Date', validators=[InputRequired()])
   eventTime = TimeField('Event Time', validators=[InputRequired()])
   submit = SubmitField("Create Event")
     
