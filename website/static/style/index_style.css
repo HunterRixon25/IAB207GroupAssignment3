@@ -37,6 +37,11 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.card{
+    max-height: 500px;
+    max-width: 300px;
+}
+
 .card-body{
     height: 244px;
     overflow-y: scroll;
@@ -44,6 +49,10 @@
 
 .card-text{
     overflow: hidden;
+}
+.card-img-top{
+    max-height: 200px;
+    max-width: 300px;
 }
 
 .scrolling-wrapper{
