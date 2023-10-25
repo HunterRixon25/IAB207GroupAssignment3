@@ -16,6 +16,7 @@ class EventsForm(FlaskForm):
     FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
   ticketCapacity = IntegerField('Number of Tickets', validators=[InputRequired(), NumberRange(min=1)])
   ticketPrice = FloatField('Ticket Price', validators=[InputRequired()])
+  ticketsSold = db.Column(db.Integer, default=0)
   address1 = StringField('Address 1', validators=[InputRequired()])
   address2 = StringField('Address 2')
   city = StringField('City', validators=[InputRequired()])
