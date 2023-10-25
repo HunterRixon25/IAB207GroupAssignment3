@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(255), nullable=False)
 
     comments = db.relationship('Comment', backref='user')
+    tickets = db.relationship('Tickets', backref='user')
 
 class Events(db.Model):
     __tablename__ = 'events'
@@ -28,10 +29,22 @@ class Events(db.Model):
     venueCapacity = db.Column(db.Integer)
     eventDate = db.Column(db.Date)
     eventTime = db.Column(db.Time)
+    
     comments = db.relationship('Comment', backref='event')
+    tickets = db.relationship('Tickets', backref='event')
 
     def __repr__(self):
         return f"Name: {self.name}"
+
+class Tickets(db.Model):
+    __tablename__ = 'tickets'
+    id = db.Column(db.Integer, primary_key=True)
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    purchase_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"Ticket: {self.id}"
 
 class Comment(db.Model):
     __tablename__ = 'comments'
