@@ -16,21 +16,29 @@
         Add more to this based on feedback-->
         <nav class="navbar navbar-expand-lg bg-dark-subtle sticky-top">
             <div class="container-fluid">
-                <a id="logo" class="navbar-brand">The Plastic Jazz <span class="logo-colored-word">Blues</span></a>
+                <a id="logo" class="navbar-brand" href="/">The Plastic Jazz <span class="logo-colored-word">Blues</span></a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"      aria-expanded="false" aria-label="Toggle navigation"></button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                      <li class="nav-item">
+                      <!-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
-                      </li>
+                      </li> -->
 
                       {% if current_user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ url_for('auth.logout') }}">Log Out</a>
-                        </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                         Welcome {{current_user.name}}</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">My Account</a></li>
+                          <li><a class="dropdown-item" href="myEvents.html">My Events</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" aria-current="page" href="{{ url_for('auth.logout') }}">Log Out</a></li>
+                        </ul>
+                      </li>
+
                       {% else %}
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ url_for('auth.register') }}">Register</a>
@@ -52,21 +60,6 @@
                   </div>
             </div>
         </nav>
-
-        <!-- flashes any messages to the user -->
-        {% with messages = get_flashed_messages() %}
-        {% if messages %} <!-- check if there are any messages -->
-          <div class="container-fluid">
-            <div class="row mt-3 mb-3">
-              <div class="col-md-12">
-              {% for message in messages %} <!--loop through the messages-->
-                <div class="alert alert-info">{{ message }}</div> <!--display as alert-->
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        {% endwith %}
 
         {% block header %}
 
