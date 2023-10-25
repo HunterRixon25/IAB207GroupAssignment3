@@ -37,10 +37,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.card{
+/* .card{
     max-height: 500px;
     max-width: 300px;
-}
+} */
 
 .card-body{
     height: 244px;

@@ -44,7 +44,7 @@
       <div class="tab-pane fade show active" id="pills-showall" role="tabpanel" aria-labelledby="pills-showall" tabindex="0">
         <div class="card-group">
           {% for event in event %}
-          <div class="card mx-3">
+          <div class="card mx-3" style="max-width: 300px; max-height: 500px;">
             <img class="card-img-top"
                 src="{{ event.image }}" alt="Event Image">
             <div class="card-body">
@@ -68,7 +68,7 @@
         <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending" tabindex="0">
           <div class="card-group">
             {% for event in trending %}
-            <div class="card mx-3">
+            <div class="card mx-3" style="max-width: 300px; max-height: 500px;">
               <img class="card-img-top"
                   src="{{ event.image }}" alt="Event Image">
               <div class="card-body">
@@ -92,7 +92,7 @@
         <div class="tab-pane fade" id="pills-blues" role="tabpanel" aria-labelledby="pills-blues" tabindex="0">
               <div class="card-group">
                 {% for event in blues %}
-                <div class="card mx-3" id="pills-blues">
+                <div class="card mx-3" style="max-width: 300px; max-height: 500px;">
                   <img class="card-img-top"
                       src="{{ event.image }}" alt="Event Image">
                   <div class="card-body">
@@ -118,7 +118,7 @@
         <div class="tab-pane fade" id="pills-soul" role="tabpanel" aria-labelledby="pills-soul" tabindex="0">
               <div class="card-group">
                 {% for event in soul %}
-                <div class="card mx-3">
+                <div class="card mx-3" style="max-width: 300px; max-height: 500px;">
                   <img class="card-img-top"
                       src="{{ event.image }}" alt="Event Image">
                   <div class="card-body">
