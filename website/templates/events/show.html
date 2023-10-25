@@ -18,8 +18,9 @@
               <div class="media-body">  
                 <small class="font-weight-bold text-muted">Event details go here</small>  
                 <h5 class="mt-0">{{event.name}}</h5>  
-                <p>{{event.description}}</p>  
-                <a href="#" class="btn btn-danger">Purchase Ticket</a>  
+                {% set tickets_avaliable = event.ticketCapacity - event.ticketsSold %}
+                <p>Tickets Avaliable: {{ tickets_avaliable }}</p>
+                {{wtf.render_form(purchase_form,"/events/{0}/purchase".format(event.id))}} 
               </div>  
             </div>  
           </div>  
@@ -39,7 +40,7 @@
     </div>  
  
     <div class="row border-bottom"> 
-      {{wtf.render_form(form,"/events/{0}/comment".format(event.id))}} 
+      {{wtf.render_form(comment_form,"/events/{0}/comment".format(event.id))}} 
       {% for comment in event.comments %}
       <div class="col-md-12">  
         <b>{{comment.user.name}} <span class="ml-2 text-muted">{{ comment.created_at.strftime("%d/%m/%Y at %I:%M %p")}}</span></b>
