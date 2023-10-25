@@ -11,8 +11,9 @@ evntbp = Blueprint('event', __name__, url_prefix='/events')
 @evntbp.route('/<id>')
 def show(id):
     event = db.session.scalar(db.select(Events).where(Events.id==id))
-    form = CommentForm()    
-    return render_template('events/show.html', event=event, form=form)
+    comment_form = CommentForm()    
+    purchase_form = TicketForm()
+    return render_template('events/show.html', event=event, comment_form = comment_form, purchase_form = purchase_form)
 
 @evntbp.route('/create', methods=['GET', 'POST'])
 @login_required
@@ -59,3 +60,25 @@ def comment(event):
 
       #flash('Your comment has been added', 'success')  
     return redirect(url_for('event.show', id=event))
+
+@evntbp.route('/<event>/purchase', methods=['GET', 'POST'])
+@login_required
+def purchase(event):
+   form = TicketForm()
+   event_obj = Events.query.filter_by(id=event).first()
+   if form.validate_on_submit():
+      if form.ticketsPurchased.data > (event_obj.ticketCapacity - event_obj.ticketsSold):
+        flash("Not enough tickets avalaible.")
+        return redirect(url_for('event.show', id=event))
+      for _ in range(int(form.ticketsPurchased.data)):
+          ticket = Tickets(event_id=event_obj.id, user_id=current_user.id)
+          db.session.add(ticket)
+      flash("Ticket id: " + str(ticket.id) + " successfully purchased!")
+      # Subtract the number of tickets avaliable from event
+      event_obj.ticketsSold += form.ticketsPurchased.data
+          
+      db.session.commit()
+          
+      flash(f"Successfully purchased {str(form.ticketsPurchased.data)} tickets!")
+      return redirect(url_for('event.show', id=event))
+   return render_template('purchase.html', form=form)
