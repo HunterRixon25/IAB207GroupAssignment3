@@ -6,8 +6,12 @@ mainbp = Blueprint('main', __name__)
 
 @mainbp.route('/')
 def index():
-    event = db.session.scalars(db.select(Events)).all()    
-    return render_template('index.html', event=event)
+    event = db.session.scalars(db.select(Events)).all()
+    trending=Events.query.filter(Events.eventCategory.ilike('%Trending%')).all()
+    blues=Events.query.filter(Events.eventCategory.ilike('%Blues%')).all()
+    soul=Events.query.filter(Events.eventCategory.ilike('%Soul%')).all()
+    return render_template('index.html', event=event, trending=trending, blues=blues, soul=soul)
+
 
 @mainbp.route('/search')
 def search():

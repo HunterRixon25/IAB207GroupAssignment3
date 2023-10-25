@@ -42,8 +42,6 @@
     
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-showall" role="tabpanel" aria-labelledby="pills-showall" tabindex="0">
-        
-     
         <div class="card-group">
           {% for event in event %}
           <div class="card mx-3">
@@ -67,10 +65,9 @@
         </div>
       </div>
 
-
-        <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-showall" tabindex="0">
+        <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending" tabindex="0">
           <div class="card-group">
-            {% for event in event %}
+            {% for event in trending %}
             <div class="card mx-3">
               <img class="card-img-top"
                   src="{{ event.image }}" alt="Event Image">
@@ -92,10 +89,10 @@
           </div>
         </div>
 
-        <div class="tab-pane fade" id="pills-blues" role="tabpanel" aria-labelledby="pills-showall" tabindex="0">
+        <div class="tab-pane fade" id="pills-blues" role="tabpanel" aria-labelledby="pills-blues" tabindex="0">
               <div class="card-group">
-                {% for event in event %}
-                <div class="card mx-3">
+                {% for event in blues %}
+                <div class="card mx-3" id="pills-blues">
                   <img class="card-img-top"
                       src="{{ event.image }}" alt="Event Image">
                   <div class="card-body">
@@ -109,6 +106,7 @@
                         </a>
                         <button type="button" class="btn btn-sm btn-success">Open</button>
                       </div>
+
                   </div>
                   <div class="card-footer"><small class="text-muted">Last updated 3 mins ago</small></div>
                 </div>
@@ -117,9 +115,9 @@
               <div>
             </div>
         </div>
-        <div class="tab-pane fade" id="pills-soul" role="tabpanel" aria-labelledby="pills-showall" tabindex="0">
+        <div class="tab-pane fade" id="pills-soul" role="tabpanel" aria-labelledby="pills-soul" tabindex="0">
               <div class="card-group">
-                {% for event in event %}
+                {% for event in soul %}
                 <div class="card mx-3">
                   <img class="card-img-top"
                       src="{{ event.image }}" alt="Event Image">
