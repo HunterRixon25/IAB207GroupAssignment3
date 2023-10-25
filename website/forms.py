@@ -7,7 +7,8 @@ ALLOWED_FILE = {'PNG', 'JPG', 'JPEG', 'png', 'jpg', 'jpeg'}
 
 class EventsForm(FlaskForm):
   name = StringField('Event Name', validators=[InputRequired()])
-  eventCategory = StringField('Event Category', validators=[InputRequired()])
+  # eventCategory = StringField('Event Category', validators=[InputRequired()])
+  eventCategory = SelectField('Event Category', choices=[('', 'Select Category'), ('Blues', 'Blues'), ('Bebop', 'Bebop'), ('Soul', 'Soul')])
   description = TextAreaField('Description', 
             validators=[InputRequired()])
   image = FileField('Destination Image', validators=[

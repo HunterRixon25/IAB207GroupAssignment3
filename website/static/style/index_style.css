@@ -50,10 +50,10 @@
 .card-text{
     overflow: hidden;
 }
-.card-img-top{
+/* .card-img-top{
     max-height: 200px;
     max-width: 300px;
-}
+} */
 
 .scrolling-wrapper{
 	overflow-x: auto;
@@ -66,4 +66,14 @@
 .display-5{
     font-weight: bold;
     margin-bottom: 0px;
+}
+
+.album{
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.card{
+    max-width: 416px;
+    max-height: 471px;
 }
