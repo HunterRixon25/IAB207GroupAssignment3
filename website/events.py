@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from .models import Events, Comment, Tickets
-from .forms import EventsForm, CommentForm, TicketForm
+from .models import Events, EventState, Comment, Tickets
+from .forms import EventsForm, CommentForm, TicketForm, EditForm
 from . import db
+from datetime import datetime
 import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
@@ -18,20 +19,20 @@ def show(id):
 @evntbp.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
-  print('Method type: ', request.method)
-  form = EventsForm()
-  if form.validate_on_submit():
-    db_file_path = check_upload_file(form)
-    event = Events(name=form.name.data, eventCategory=form.eventCategory.data, description=form.description.data, 
-    image=db_file_path, ticketCapacity=form.ticketCapacity.data, ticketPrice=form.ticketPrice.data, 
-    address1=form.address1.data, address2=form.address2.data, city=form.city.data, state=form.state.data, 
-    postcode=form.postcode.data, venueCapacity=form.venueCapacity.data, eventDate=form.eventDate.data, eventTime=form.eventTime.data)
-    db.session.add(event)
-    db.session.commit()
-    print('probably added to database')
-    flash('Successfully created new Music Event', 'success')
-    return redirect(url_for('event.create'))
-  return render_template('events/create.html', form=form)
+    print('Method type: ', request.method)
+    form = EventsForm()
+    if form.validate_on_submit():
+      db_file_path = check_upload_file(form)
+      event = Events(name=form.name.data, event_manager_id=current_user.id, eventCategory=form.eventCategory.data, description=form.description.data, 
+      image=db_file_path, ticketCapacity=form.ticketCapacity.data, ticketPrice=form.ticketPrice.data, 
+      address1=form.address1.data, address2=form.address2.data, city=form.city.data, state=form.state.data, 
+      postcode=form.postcode.data, venueCapacity=form.venueCapacity.data, eventDate=form.eventDate.data, eventTime=form.eventTime.data, eventState=EventState.OPEN.value)
+      db.session.add(event)
+      db.session.commit()
+      print('probably added to database')
+      flash('Successfully created new Music Event', 'success')
+      return redirect(url_for('event.show', id=event.id))
+    return render_template('events/create.html', form=form)
 
 def check_upload_file(form):
   fp = form.image.data
@@ -82,3 +83,96 @@ def purchase(event):
       flash(f"Successfully purchased {str(form.ticketsPurchased.data)} tickets!")
       return redirect(url_for('event.show', id=event))
    return render_template('purchase.html', form=form)
+
+def update_event_state():
+   now = datetime.now()
+   events = Events.query.all()
+
+   for event in events: 
+      if event.eventDate < now.date():
+        event.eventState = EventState.INVALID
+      elif event.ticketsSold == event.ticketCapacity:
+         event.eventState = EventState.SOLD
+         
+@evntbp.route('/<event>/edit', methods=['GET', 'POST'])
+@login_required
+def edit(event):
+    event_obj = Events.query.filter_by(id=event).first()
+
+    if not event_obj:
+       flash('Event not found!', 'danger')
+       return redirect(url_for('main.index'))
+
+    #Ensure the current user is the one who created the event. 
+    if event_obj.event_manager_id != current_user.id:
+      flash('You do not have permission to edit this event.', 'danger')
+      return redirect(url_for('main.index'))
+   
+    # Pre-populate the form with the event's original details
+    form = EditForm()
+    if request.method == 'GET':
+      form.name.data = event_obj.name
+      form.eventCategory.data = event_obj.eventCategory
+      form.description.data = event_obj.description
+      form.ticketCapacity.data = event_obj.ticketCapacity
+      form.ticketPrice.data = event_obj.ticketPrice
+      form.address1.data = event_obj.address1
+      form.address2.data = event_obj.address2
+      form.city.data = event_obj.city
+      form.state.data = event_obj.state
+      form.postcode.data = event_obj.postcode
+      form.venueCapacity.data = event_obj.venueCapacity
+      form.eventDate.data = event_obj.eventDate
+      form.eventTime.data = event_obj.eventTime
+
+    if form.validate_on_submit():
+        # Attempt to catch a very sneaky potential error
+        if event_obj.ticketsSold > form.ticketCapacity.data:
+          flash('Attempt to push invalid data', 'danger')
+          return redirect(url_for('main.index'))
+
+        db_file_path = check_upload_file_edit(form)
+        if not db_file_path:
+           db_file_path = event_obj.image
+        
+        # Update the event's data
+        event_obj.name = form.name.data
+        event_obj.eventCategory = form.eventCategory.data
+        event_obj.eventState = form.cancelEvent.data
+        event_obj.description = form.description.data
+        event_obj.image = db_file_path
+        event_obj.ticketCapacity = form.ticketCapacity.data
+        event_obj.ticketPrice = form.ticketPrice.data
+        event_obj.address1 = form.address1.data
+        event_obj.address2 = form.address2.data
+        event_obj.city = form.city.data
+        event_obj.state = form.state.data
+        event_obj.postcode = form.postcode.data
+        event_obj.venueCapacity = form.venueCapacity.data
+        event_obj.eventDate = form.eventDate.data
+        event_obj.eventTime = form.eventTime.data
+
+        db.session.commit()
+
+        return redirect(url_for('event.show', id=event))
+    else:
+       print(form.errors)
+    return render_template('events/edit.html', form=form)
+
+def check_upload_file_edit(form):
+  fp = form.image.data
+
+  # Check if no file was uploaded
+  if not fp:
+     return None
+  
+  filename = fp.filename 
+  BASE_PATH = os.path.dirname(__file__)
+
+  # Ensure the directory exists
+  upload_directory = os.path.join(BASE_PATH, 'static', 'img')
+  
+  upload_path = os.path.join(upload_directory, secure_filename(filename))
+  db_upload_path = '/static/img/' + secure_filename(filename)
+  fp.save(upload_path)
+  return db_upload_path
