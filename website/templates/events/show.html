@@ -19,9 +19,13 @@
               <div class="media-body">  
                 <small class="font-weight-bold text-muted">Event details go here</small>  
                 <h5 class="mt-0">{{event.name}}</h5>  
-                {% set tickets_avaliable = event.ticketCapacity - event.ticketsSold %}
-                <p>Tickets Avaliable: {{ tickets_avaliable }}</p>
-                {{wtf.render_form(purchase_form,"/events/{0}/purchase".format(event.id))}} 
+                {% if event.eventState != "Open" %}
+                  <p>Event Unavaliable</p>
+                {% else %}
+                  {% set tickets_avaliable = event.ticketCapacity - event.ticketsSold %}
+                  <p>Tickets Avaliable: {{ tickets_avaliable }}</p>
+                  {{wtf.render_form(purchase_form,"/events/{0}/purchase".format(event.id))}} 
+                {% endif %}
               </div>  
             </div>  
           </div>  
