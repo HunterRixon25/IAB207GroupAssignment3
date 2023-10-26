@@ -17,7 +17,7 @@ def update_event_state():
    for event in events: 
       if event.eventDate <= now.date():
          if event.eventTime <= now.time():
-            event.eventState = EventState.INVALID.value
+            event.eventState = EventState.EXPIRED.value
       elif event.ticketsSold == event.ticketCapacity:
          event.eventState = EventState.SOLD.value
 
