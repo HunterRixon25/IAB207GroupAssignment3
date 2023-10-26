@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, SelectField, IntegerField, FloatField, DateField, TimeField, BooleanField
-from wtforms.validators import InputRequired, Email, EqualTo, NumberRange
+from wtforms.validators import InputRequired, Email, EqualTo, NumberRange, Regexp, Length, DataRequired
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 from .models import EventState
 
@@ -56,6 +56,7 @@ class LoginForm(FlaskForm):
 class RegisterForm(FlaskForm):
     user_name = StringField("User Name", validators=[InputRequired()])
     email_id = StringField("Email Address", validators=[Email("Please enter a valid email")])
+    phone = StringField('Phone No.',validators=[DataRequired(),Regexp(regex=r'^(?:\+?(61))? ?(?:\((?=.*\)))?(0?[2-57-8])\)? ?(\d\d(?:[- ](?=\d{3})|(?!\d\d[- ]?\d[- ]))\d\d[- ]?\d[- ]?\d{3})$')]) #This regex captures any australian phone number, that's all you need to know.
     
     password = PasswordField("Password", validators=[InputRequired(),
                   EqualTo('confirm', message="Passwords should match")])
