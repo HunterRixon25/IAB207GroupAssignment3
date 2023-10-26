@@ -51,6 +51,7 @@
                             {{ form.image(class="form-control") }}
                         </div>                      
                       <p class="text-muted text-center">Supported file types: JPEG, PNG</p>
+                      <p class="text-muted text-center">Leave empty if you do not want to update event's Image</p>
                       {% if form.image.errors %}
                             <div class="alert alert-danger">
                                 {% for error in form.image.errors %}
