@@ -9,11 +9,28 @@ from flask_login import login_required, current_user
 
 evntbp = Blueprint('event', __name__, url_prefix='/events')
 
+# Self explainatory
+def update_event_state():
+   now = datetime.now()
+   events = Events.query.all()
+
+   for event in events: 
+      if event.eventDate <= now.date():
+         if event.eventTime <= now.time():
+            event.eventState = EventState.INVALID.value
+      elif event.ticketsSold == event.ticketCapacity:
+         event.eventState = EventState.SOLD.value
+
+   db.session.commit()
+
 @evntbp.route('/<id>')
 def show(id):
     event = db.session.scalar(db.select(Events).where(Events.id==id))
     comment_form = CommentForm()    
     purchase_form = TicketForm()
+
+    update_event_state() # check to see if events can be updated yet.
+
     return render_template('events/show.html', event=event, comment_form = comment_form, purchase_form = purchase_form)
 
 @evntbp.route('/create', methods=['GET', 'POST'])
@@ -22,6 +39,19 @@ def create():
     print('Method type: ', request.method)
     form = EventsForm()
     if form.validate_on_submit():
+      now = datetime.now()
+
+      # Check if the datetime the user has entered is valid.
+      if form.eventDate.data < now.date():
+         if form.eventTime.data < now.time():
+            flash('The date/time you have entered is invalid!', 'danger')
+            return redirect(url_for('event.create'))
+      
+      # Check if the entered venue capacity & ticket capacity values are valid
+      if form.venueCapacity.data < form.ticketCapacity.data:
+         flash('Venue Capacity cannot be smaller than number of tickets!', 'danger')
+         return redirect(url_for('event.create'))
+
       db_file_path = check_upload_file(form)
       event = Events(name=form.name.data, event_manager_id=current_user.id, eventCategory=form.eventCategory.data, description=form.description.data, 
       image=db_file_path, ticketCapacity=form.ticketCapacity.data, ticketPrice=form.ticketPrice.data, 
@@ -50,6 +80,7 @@ def check_upload_file(form):
 @evntbp.route('/<event>/comment', methods=['GET', 'POST'])  
 @login_required
 def comment(event):  
+    update_event_state() # Check to see if event states can be updated.
     form = CommentForm()  
     event_obj = Events.query.filter_by(id=event).first()
     if form.validate_on_submit():  
@@ -81,18 +112,11 @@ def purchase(event):
       db.session.commit()
           
       flash(f"Successfully purchased {str(form.ticketsPurchased.data)} tickets!")
+
+      update_event_state() # Check to see if events can be updated now.
+
       return redirect(url_for('event.show', id=event))
    return render_template('purchase.html', form=form)
-
-def update_event_state():
-   now = datetime.now()
-   events = Events.query.all()
-
-   for event in events: 
-      if event.eventDate < now.date():
-        event.eventState = EventState.INVALID
-      elif event.ticketsSold == event.ticketCapacity:
-         event.eventState = EventState.SOLD
          
 @evntbp.route('/<event>/edit', methods=['GET', 'POST'])
 @login_required
@@ -126,6 +150,19 @@ def edit(event):
       form.eventTime.data = event_obj.eventTime
 
     if form.validate_on_submit():
+        now = datetime.now()
+
+        # Check if the datetime the user has entered is valid.
+        if form.eventDate.data < now.date():
+          if form.eventTime.data < now.time():
+            flash('The date/time you have entered is invalid!', 'danger')
+            return redirect(url_for('main.index'))
+      
+        # Check if the entered venue capacity & ticket capacity values are valid
+        if form.venueCapacity.data < form.ticketCapacity.data:
+          flash('Venue Capacity cannot be smaller than number of tickets!', 'danger')
+          return redirect(url_for('main.index'))
+        
         # Attempt to catch a very sneaky potential error
         if event_obj.ticketsSold > form.ticketCapacity.data:
           flash('Attempt to push invalid data', 'danger')
@@ -153,6 +190,8 @@ def edit(event):
         event_obj.eventTime = form.eventTime.data
 
         db.session.commit()
+
+        update_event_state() # Check to see if event states can be updated.
 
         return redirect(url_for('event.show', id=event))
     else:
