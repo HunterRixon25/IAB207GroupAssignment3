@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
 
 class EventState(Enum):
     OPEN = "Open"
-    INVALID = "Invalid"
+    EXPIRED = "Expired"
     SOLD = "Sold Out"
     CANCELLED = "Cancelled"
 
