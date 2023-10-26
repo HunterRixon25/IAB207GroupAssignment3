@@ -62,7 +62,15 @@
                             <a href="{{ url_for('event.show', id=event.id) }}">
                             <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
                             </a>
+                            {% if event.eventState == "Open" %}
                             <button type="button" class="btn btn-sm btn-success">Open</button>
+                            {% elif event.eventState == "Invalid" %}
+                            <button type="button" class="btn btn-sm btn-danger">Invalid</button>
+                            {% elif event.eventState == "Sold Out" %}
+                            <button type="button" class="btn btn-sm btn-warning">Sold Out</button>
+                            {% else %}
+                            <button type="button" class="btn btn-sm btn-danger">Cancelled</button>
+                            {% endif %}
                           </div>
                         </div>
                         <div class="col-7">
