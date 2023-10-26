@@ -48,7 +48,7 @@
                 <div class="card card-cover h-100 rounded-4 shadow-lg">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1 mt-5">
                         <div class="input-group mb-3">
-                            {{ form.image(class="form-control") }}
+                            {{ form.image(class="form-control", placeholder="Only upload file if you want to change the image of the event.") }}
                         </div>                      
                       <p class="text-muted text-center">Supported file types: JPEG, PNG</p>
                       {% if form.image.errors %}
