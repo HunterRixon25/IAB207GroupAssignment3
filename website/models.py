@@ -1,4 +1,6 @@
 from . import db
+from enum import Enum
+#from sqlalchemy import Enum as SQLAlchemyEnum
 from datetime import datetime
 from flask_login import UserMixin
 
@@ -9,12 +11,20 @@ class User(db.Model, UserMixin):
     emailid = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
 
+    events = db.relationship('Events', backref='user')
     comments = db.relationship('Comment', backref='user')
     tickets = db.relationship('Tickets', backref='user')
+
+class EventState(Enum):
+    OPEN = "Open"
+    INVALID = "Invalid"
+    SOLD = "Sold Out"
+    CANCELLED = "Cancelled"
 
 class Events(db.Model):
     __tablename__ = 'events'
     id = db.Column(db.Integer, primary_key=True)
+    event_manager_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     name = db.Column(db.String(80))
     eventCategory = db.Column(db.String(80))
     description = db.Column(db.String(250))
@@ -30,6 +40,7 @@ class Events(db.Model):
     venueCapacity = db.Column(db.Integer)
     eventDate = db.Column(db.Date)
     eventTime = db.Column(db.Time)
+    eventState = db.Column(db.String(20))
     
     comments = db.relationship('Comment', backref='event')
     tickets = db.relationship('Tickets', backref='event')
