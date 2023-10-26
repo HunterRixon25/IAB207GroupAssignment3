@@ -17,8 +17,9 @@ def index():
 def search():
     if request.args['search'] and request.args['search'] != "":
         print(request.args['search'])
-        query = "%" + request.args['search'] + "%"
-        event = db.session.scalars(db.select(Events).where(Events.description.like(query)))
-        return render_template('index.html', events=event)
+        query = request.args['search']
+        search=Events.query.filter(Events.name.ilike('%' + query + '%'))
+        return render_template('search.html', search=search, query=query)
     else:
         return redirect(url_for('main.index'))
+
