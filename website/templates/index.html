@@ -52,7 +52,7 @@
                     <p class="card-text">
                       <h5>{{event.name}}</h5>
                       <small>{{event.eventDate}} {{event.eventTime}}</small>
-                      <small class="text-muted red-text"><span class="start-price">Starts at A${{event.ticketPrice}}</span></small><br>
+                      <small class="text-muted red-text"><span class="start-price">Starts at AU ${{event.ticketPrice}}</span></small><br>
                       {{event.description}}
                     </p>
                     <div class="justify-content-between align-items-center">
@@ -64,8 +64,8 @@
                             </a>
                             {% if event.eventState == "Open" %}
                             <button type="button" class="btn btn-sm btn-success">Open</button>
-                            {% elif event.eventState == "Invalid" %}
-                            <button type="button" class="btn btn-sm btn-danger">Invalid</button>
+                            {% elif event.eventState == "Expired" %}
+                            <button type="button" class="btn btn-sm btn-danger">Expired</button>
                             {% elif event.eventState == "Sold Out" %}
                             <button type="button" class="btn btn-sm btn-warning">Sold Out</button>
                             {% else %}
@@ -180,8 +180,8 @@
                             </a>
                             {% if event.eventState == "Open" %}
                             <button type="button" class="btn btn-sm btn-success">Open</button>
-                            {% elif event.eventState == "Invalid" %}
-                            <button type="button" class="btn btn-sm btn-danger">Invalid</button>
+                            {% elif event.eventState == "Expired" %}
+                            <button type="button" class="btn btn-sm btn-danger">Expired</button>
                             {% elif event.eventState == "Sold Out" %}
                             <button type="button" class="btn btn-sm btn-warning">Sold Out</button>
                             {% else %}
