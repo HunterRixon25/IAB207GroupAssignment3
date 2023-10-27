@@ -57,6 +57,7 @@ class RegisterForm(FlaskForm):
     user_name = StringField("User Name", validators=[InputRequired()])
     email_id = StringField("Email Address", validators=[Email("Please enter a valid email")])
     phone = StringField('Phone No.',validators=[DataRequired(),Regexp(regex=r'^(?:\+?(61))? ?(?:\((?=.*\)))?(0?[2-57-8])\)? ?(\d\d(?:[- ](?=\d{3})|(?!\d\d[- ]?\d[- ]))\d\d[- ]?\d[- ]?\d{3})$')]) #This regex captures any australian phone number, that's all you need to know.
+    postcode = StringField("Post Code (Address)", validators=[InputRequired("Please provide your home's post code."), Length(min=4, max=4)])
     
     password = PasswordField("Password", validators=[InputRequired(),
                   EqualTo('confirm', message="Passwords should match")])
