@@ -15,12 +15,13 @@ def register():
             pwd = register.password.data
             email = register.email_id.data
             phone = register.phone.data
+            postcode = register.postcode.data
             user = User.query.filter_by(name=uname).first()
             if user:
                 flash('Username already exists, please try another')
                 return redirect(url_for('auth.register'))
             pwd_hash = generate_password_hash(pwd)
-            new_user = User(name=uname, password_hash=pwd_hash, emailid=email, phone=phone)
+            new_user = User(name=uname, password_hash=pwd_hash, emailid=email, phone=phone, postcode=postcode)
             db.session.add(new_user)
             db.session.commit()
             return redirect(url_for('auth.register'))
