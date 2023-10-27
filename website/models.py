@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(100), index=True, unique=True, nullable=False)
     emailid = db.Column(db.String(100), index=True, nullable=False)
     phone = db.Column(db.String(16), index=True, nullable=False)
+    postcode = db.Column(db.String(5), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
 
     events = db.relationship('Events', backref='user')
