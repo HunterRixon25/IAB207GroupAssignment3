@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request, redirect, url_for
-from .models import Events
+from flask import Blueprint, render_template, request, redirect, url_for, flash
+from .models import Events, User, Tickets
 from . import db
+from flask_login import current_user
 
 mainbp = Blueprint('main', __name__)
 
@@ -22,4 +23,23 @@ def search():
         return render_template('search.html', search=search, query=query)
     else:
         return redirect(url_for('main.index'))
+    
+@mainbp.route('/myEvents')
+def myEvents():
+    myevents = Events.query.filter(Events.event_manager_id == current_user.id).all()
+    if not myevents:
+        flash('You have no events. Create one first!', 'danger')
+        return redirect(url_for('main.index'))
+    else:
+        return render_template('myEvents.html', myevents=myevents)
+    
+
+@mainbp.route('/userBookingHistory')
+def history():
+    booking = Tickets.query.filter(Tickets.user_id == current_user.id).all()
+    if not booking:
+        flash('You have not purchased any tickets for events.', 'danger')
+        return redirect(url_for('main.index'))
+    else:
+        return render_template('userBookingHistory.html', booking=booking)
 

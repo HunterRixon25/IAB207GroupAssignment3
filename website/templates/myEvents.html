@@ -1,0 +1,63 @@
+<head>
+    <link rel="stylesheet" href="../static/style/index_style.css" type="text/css"/>
+  </head>
+  
+  {% extends 'base.html' %}
+  
+  {% block header %}
+  {% endblock %}
+  
+  {% block content %}  
+  
+  <div class="row text-center">
+      <h3>My Events</h3>
+  </div>
+  
+  <div class="album">
+      <div class="card-group">
+      {% for event in myevents %}
+          <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{ event.image }}" alt="Event Image" data-holder-rendered="true">
+              <div class="card-body">
+                  <p class="card-text">
+                  <h5>{{event.name}}</h5>
+                  <small>{{event.eventDate}} {{event.eventTime}}</small>
+                  <small class="text-muted red-text"><span class="start-price">Starts at A${{event.ticketPrice}}</span></small><br>
+                  {{event.description}}
+                  </p>
+                  <div class="justify-content-between align-items-center">
+                      <div class="row">
+                        <div class="col-5">
+                          <div class="btn-group">
+                            <a href="{{ url_for('event.show', id=event.id) }}">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                            </a>
+                            <a href="#">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit Event</button>
+                            </a>
+                            {% if event.eventState == "Open" %}
+                            <button type="button" class="btn btn-sm btn-success">Open</button>
+                            {% elif event.eventState == "Expired" %}
+                            <button type="button" class="btn btn-sm btn-danger">Expired</button>
+                            {% elif event.eventState == "Sold Out" %}
+                            <button type="button" class="btn btn-sm btn-warning">Sold Out</button>
+                            {% else %}
+                            <button type="button" class="btn btn-sm btn-danger">Cancelled</button>
+                            {% endif %}
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <small class="text-muted">{{event.address1}}, {{event.address2}}, {{event.city}}, {{event.state}}, {{event.postcode}}</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div> 
+      </div> 
+  </div>
+  {% endblock %}
+  
