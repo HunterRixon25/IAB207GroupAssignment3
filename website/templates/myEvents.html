@@ -33,7 +33,7 @@
                             <a href="{{ url_for('event.show', id=event.id) }}">
                             <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
                             </a>
-                            <a href="#">
+                            <a href="{{ url_for('event.edit', event=event.id) }}">
                               <button type="button" class="btn btn-sm btn-outline-secondary">Edit Event</button>
                             </a>
                             {% if event.eventState == "Open" %}
