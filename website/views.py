@@ -36,11 +36,9 @@ def myEvents():
 
 @mainbp.route('/userBookingHistory')
 def history():
-    booking = Tickets.query.filter(Tickets.user_id == current_user.id).all()
-    if booking:
-        qty = Events.query.filter(Tickets.user_id == current_user.id).group_by(Tickets.event_id).all()
-        if qty:
-            return render_template('userBookingHistory.html', booking=booking, qty=qty)
+    ticket = db.session.query(Events, Tickets).join(Events, Tickets.event_id == Events.id).filter(Tickets.user_id == current_user.id).all()
+    if ticket:
+        return render_template('userBookingHistory.html', ticket=ticket)
     else:
         flash('You have not purchased any tickets for events.', 'danger')
         return redirect(url_for('main.index'))
