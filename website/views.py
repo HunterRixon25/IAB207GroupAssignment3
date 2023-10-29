@@ -43,3 +43,14 @@ def history():
         flash('You have not purchased any tickets for events.', 'danger')
         return redirect(url_for('main.index'))
 
+@mainbp.errorhandler(404)
+def not_found(e):
+    return render_template('404.html')
+
+@mainbp.errorhandler(400)
+def bad_request(e):
+    return render_template('400.html')
+
+@mainbp.errorhandler(500)
+def internal_error(e):
+    return render_template('500.html')
