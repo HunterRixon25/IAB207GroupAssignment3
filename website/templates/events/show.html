@@ -9,30 +9,6 @@
 
 {% block content %}
 
-<!-- Event --> 
-    <!-- <div class="row">  
-      <div class="col-md-12">  
-        <div class="card my-3">  
-          <div class="card-body">  
-            <div class="media">  
-              <img class="align-self-start mr-3" src="{{event.image}}">  
-              <div class="media-body">  
-                <small class="font-weight-bold text-muted">Event details go here</small>  
-                <h5 class="mt-0">{{event.name}}</h5>  
-                {% if event.eventState != "Open" %}
-                  <p>Event Unavaliable</p>
-                {% else %}
-                  {% set tickets_avaliable = event.ticketCapacity - event.ticketsSold %}
-                  <p>Tickets Avaliable: {{ tickets_avaliable }}</p>
-                  {{wtf.render_form(purchase_form,"/events/{0}/purchase".format(event.id))}} 
-                {% endif %}
-              </div>  
-            </div>  
-          </div>  
-        </div>  
-      </div>  
-    </div>      -->
-
     <!-- Jumbotron to display the event image. -->
     <div class="container my-5">
       <div class="p-5 text-center bg-body-tertiary rounded-3">
@@ -99,10 +75,50 @@
   </div>
 
   <!-- More events like this -->
-  <div class="container-fluid">
-    <article class="blog-post">
-
-    </article>
-  </div>
+<div class="container-fluid">
+  <article class="blog-post">
+    <h2>More {{event.eventCategory}} events</h2>
+    <hr>
+    <div class="card-group">
+      {% for event in genre_events %}
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <div class="card-body">
+            <p class="card-text">
+              <h4>{{event.name}}</h4>
+              <small>{{event.eventDate}} {{event.eventTime}}</small>
+              <small class="text-muted red-text"><span class="start-price">Starts at AU ${{event.ticketPrice}}</span></small><br>
+              {{event.description}}
+            </p>
+            <div class="justify-content-between align-items-center">
+              <div class="row">
+                <div class="col-5">
+                  <div class="btn-group">
+                    <a href="{{ url_for('event.show', id=event.id) }}">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View Event</button>
+                    </a>
+                    {% if event.eventState == "Open" %}
+                    <button type="button" class="btn btn-sm btn-success">Open</button>
+                    {% elif event.eventState == "Expired" %}
+                    <button type="button" class="btn btn-sm btn-danger">Expired</button>
+                    {% elif event.eventState == "Sold Out" %}
+                    <button type="button" class="btn btn-sm btn-warning">Sold Out</button>
+                    {% else %}
+                    <button type="button" class="btn btn-sm btn-danger">Cancelled</button>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="col-7">
+                  <small class="text-muted">{{event.address1}}, {{event.address2}}, {{event.city}}, {{event.state}}, {{event.postcode}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </article>
+</div>
 
 {% endblock %}
