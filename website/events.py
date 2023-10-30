@@ -31,7 +31,9 @@ def show(id):
 
     update_event_state() # check to see if events can be updated yet.
 
-    return render_template('events/show.html', event=event, comment_form = comment_form, purchase_form = purchase_form)
+    genre_events = db.session.query(Events).filter(Events.eventCategory == event.eventCategory, Events.id != event.id).all()
+
+    return render_template('events/show.html', event=event, comment_form = comment_form, purchase_form = purchase_form, genre_events = genre_events)
 
 @evntbp.route('/create', methods=['GET', 'POST'])
 @login_required
