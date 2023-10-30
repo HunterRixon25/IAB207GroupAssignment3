@@ -37,7 +37,6 @@
   <div class="container-fluid">
     <article class="blog-post">
       <h2>Book Now</h2>
-      <form>
         {% if event.eventState != "Open" %}
                   <p>Event Unavaliable</p>
                 {% else %}
@@ -45,7 +44,6 @@
                   <p>Tickets Avaliable: {{ tickets_avaliable }}</p>
                   {{wtf.render_form(purchase_form,"/events/{0}/purchase".format(event.id))}} 
                 {% endif %}
-      </form>
       <hr>
     </article>
   </div>
