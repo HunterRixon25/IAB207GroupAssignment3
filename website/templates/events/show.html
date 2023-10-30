@@ -60,25 +60,16 @@
   <!-- Booking Form -->
   <div class="container-fluid">
     <article class="blog-post">
+      <h2>Book Now</h2>
       <form>
-        <div class="form-group">
-          <label for="exampleFormControlInput1"><span style="color: red;">*</span>Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-          <small class="text-muted">The ticket will be sent to this address.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1"><span style="color: red;">*</span>Number of Tickets</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <small class="text-muted">The Plastic Jazz <span style="color: blue;">Blue</span>'s has limited 5 tickets per user to follow our fair use policy.</small>
-        </div>
+        {% if event.eventState != "Open" %}
+                  <p>Event Unavaliable</p>
+                {% else %}
+                  {% set tickets_avaliable = event.ticketCapacity - event.ticketsSold %}
+                  <p>Tickets Avaliable: {{ tickets_avaliable }}</p>
+                  {{wtf.render_form(purchase_form,"/events/{0}/purchase".format(event.id))}} 
+                {% endif %}
       </form>
-      <button type="button" class="btn btn-primary mt-3">Book</button>
       <hr>
     </article>
   </div>
@@ -110,7 +101,7 @@
   <!-- More events like this -->
   <div class="container-fluid">
     <article class="blog-post">
-      
+
     </article>
   </div>
 
